@@ -104,8 +104,20 @@ def main() -> None:
     df = clean_data(df)
     with st.expander("Cleaned Data"):
         st.write(df)
-
+    st.sidebar.header("Advance Auto Parts")
     st.sidebar.subheader("Filter Displayed Accounts")
+    
+    # Add custom CSS to set the text color of the sidebar header
+st.markdown(
+    """
+    <style>
+    .sidebar .sidebar-content .sidebar-section .sidebar-section-title {
+        color: #2c8cff;  /* Set your desired text color here */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
     accounts = list(df.account_name.unique())
     account_selections = st.sidebar.multiselect(
