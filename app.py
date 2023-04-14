@@ -70,7 +70,7 @@ fig = go.Figure(data=[go.Table(
                line_color='darkslategray',
                align='center',
                font=dict(color='darkslategray', size=16, family='sans-serif'),
-               height=30)
+               height=30,width=200)
 )])
 
 # Update table layout
