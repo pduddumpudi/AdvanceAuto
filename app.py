@@ -109,8 +109,5 @@ transposed_data = selected_columns.T
 # Display the transposed table using st.write
 #st.write(transposed_data)
 
-st.write("Other location details", transposed_data, 
-         header=True, 
-         index=False, 
-         wide=True, 
-         num_rows=20)
+style = transposed_data.style.hide_index()
+st.write(styler.to_html(), unsafe_allow_html=True)
