@@ -17,7 +17,7 @@ df = pd.read_excel('Input.xlsx')
 # Define custom CSS for the sidebar
 sidebar_style = """
     .sidebar {
-        margin-left: 500px;
+        margin-left: 0px;
     }
 """
 
