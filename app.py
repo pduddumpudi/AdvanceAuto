@@ -101,19 +101,19 @@ st.plotly_chart(fig)
 
 
 
-# Transpose columns of filtered_data
-transposed_data = filtered_data.columns[14:32].T
+# Select columns 14 to 31 from filtered_data
+table_columns = filtered_data.iloc[:, 14:32]
 
-# Specify column positions to be displayed in the table (columns 14 to 31)
-table_columns = transposed_data
+# Transpose the selected columns
+transposed_data = table_columns.T
 
-fig = go.Figure(data=[go.Table(
-    header=dict(values= ['<b>' + str(col) + '</b>' for col in table_columns],
+fig = go.Figure(data=[go.Table(columnwidth = [80,170,70,70,70],
+    header=dict(values= ['<b>' + str(col) + '</b>' for col in transposed_data.columns],
                 fill_color='white',
                 line_color='darkslategray',
                 align='center',
                 font=dict(color='#2c8cff', size=14, family='sans-serif')),
-    cells=dict(values=[transposed_data[col] for col in table_columns],
+    cells=dict(values=[transposed_data[col] for col in transposed_data.columns],
                fill_color='white',
                line_color='darkslategray',
                align='center',
