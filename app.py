@@ -107,6 +107,6 @@ selected_columns = filtered_data.iloc[:, 14:32]
 transposed_data = selected_columns.T
 
 # Display the transposed table using st.write
-st.table(transposed_data)
+st.dataframe(transposed_data)
 
 
