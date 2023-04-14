@@ -56,9 +56,6 @@ filtered_data = df[(df['Models'] == selected_model) &
                    (df['Main Group'] == selected_main_group) &
                    (df['New Disc'] == selected_new_disc)]
 
-# Display table title
-st.markdown('<h2 style="font-size: 20px; font-weight: bold;">Part Details</h2>', unsafe_allow_html=True)
-
 # Specify columns to be displayed in the table
 table_columns = ['Part No', 'Description', 'Location', 'Current Stock', 'MRP']
 
@@ -77,7 +74,7 @@ fig = go.Figure(data=[go.Table(
 ])
 
 # Update table layout
-fig.update_layout(width=800, height=300, title=dict(text='Part Details', font=dict(size=24, family='sans-serif')))
+fig.update_layout(width=800, height=300, title=dict(text='Part Details', font=dict(size=20, family='sans-serif')))
 
 # Display Plotly table
 st.plotly_chart(fig)
