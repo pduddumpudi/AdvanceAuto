@@ -100,7 +100,7 @@ fig.update_layout(width=800, height=300, title=dict(text='Part Details', font=di
 st.plotly_chart(fig)
 
 # Load your data into a DataFrame
-filtered_data = pd.read_csv('your_file.csv')
+filtered_data = pd.read_csv('Input.csv')
 
 # Select columns 14 to 31
 selected_columns = filtered_data.iloc[:, 14:32]
