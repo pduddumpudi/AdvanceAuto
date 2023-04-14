@@ -77,7 +77,7 @@ fig = go.Figure(data=[go.Table(
 ])
 
 # Update table layout
-fig.update_layout(width=800, height=300,title='Part Details')
+fig.update_layout(width=800, height=300, title=dict(text='Part Details', font=dict(size=24, family='sans-serif')))
 
 # Display Plotly table
 st.plotly_chart(fig)
