@@ -14,18 +14,24 @@ import pandas as pd
 # Load Excel file
 df = pd.read_excel('Input.xlsx')
 
+st.sidebar.title('Filter Options')
+
 # Create dropdowns for user selection
 model_options = df['Models'].unique()
-selected_model = st.selectbox('Select Model', model_options)
+selected_model = st.sidebar.selectbox('Select Model', model_options)
 
-type_options = df['Type'].unique()
-selected_type = st.selectbox('Select Type', type_options)
+# Update type options based on selected model
+type_options = df[df['Models'] == selected_model]['Type'].unique()
+selected_type = st.sidebar.selectbox('Select Type', type_options)
 
-main_group_options = df['Main Group'].unique()
-selected_main_group = st.selectbox('Select Main Group', main_group_options)
+# Update main group options based on selected model and type
+main_group_options = df[(df['Models'] == selected_model) & (df['Type'] == selected_type)]['Main Group'].unique()
+selected_main_group = st.sidebar.selectbox('Select Main Group', main_group_options)
 
-new_disc_options = df['New Disc'].unique()
-selected_new_disc = st.selectbox('Select New Disc', new_disc_options)
+# Update new disc options based on selected model, type, and main group
+new_disc_options = df[(df['Models'] == selected_model) & (df['Type'] == selected_type) &
+                      (df['Main Group'] == selected_main_group)]['New Disc'].unique()
+selected_new_disc = st.sidebar.selectbox('Select New Disc', new_disc_options)
 
 # Filter data based on user selection
 filtered_data = df[(df['Models'] == selected_model) &
