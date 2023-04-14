@@ -33,10 +33,10 @@ st.markdown(
     """
     <style>
     .sidebar .sidebar-content {
-        margin-bottom: -20px;  /* Adjust this value to reduce space */
+        margin-bottom: 0px;  /* Adjust this value to reduce space */
     }
     .main {
-        margin-left: 70px;  /* Adjust this value to reduce space */
+        margin-left: -70px;  /* Adjust this value to reduce space */
         margin-right: 0px;  /* Adjust this value to reduce space */
     }
     </style>
