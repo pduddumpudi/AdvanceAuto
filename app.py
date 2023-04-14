@@ -14,9 +14,6 @@ import pandas as pd
 # Load Excel file
 df = pd.read_excel('Input.xlsx')
 
-# Set Streamlit configuration
-set_config(get_adaptable_width=True)
-
 # Define sidebar location
 st.sidebar.markdown('<h1 style="color:#2c8cff;">Advance Auto Parts</h1>', unsafe_allow_html=True)
 
