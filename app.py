@@ -63,5 +63,7 @@ st.markdown('<h2 style="font-size: 20px; font-weight: bold;">Part Details</h2>',
 
 # Display filtered data in a table with bold table header row
 filtered_data_style = filtered_data[['Part No', 'Description', 'Location', 'Current Stock', 'MRP']].style.set_caption("Auto Parts Data")
-filtered_data_style = filtered_data_style.set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold')]}])
+filtered_data_style = filtered_data_style.set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold')]},
+                                                            {'selector': 'td', 'props': [('width', '150px')]},  # Set column width
+                                                            ])
 st.write(filtered_data_style)
