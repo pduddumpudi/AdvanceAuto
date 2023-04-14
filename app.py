@@ -53,5 +53,13 @@ filtered_data = df[(df['Models'] == selected_model) &
                    (df['Main Group'] == selected_main_group) &
                    (df['New Disc'] == selected_new_disc)]
 
-# Display filtered data in a table
-st.write(filtered_data[['Part No', 'Description', 'Location', 'Current Stock', 'MRP']])
+
+
+# Display table title
+st.write('')
+st.write('')
+st.markdown('<h2 style="font-weight: bold;">Filtered Auto Parts</h2>', unsafe_allow_html=True)
+
+# Display filtered data in a table with bold table header row
+st.write(filtered_data[['Part No', 'Description', 'Location', 'Current Stock', 'MRP']].style.set_caption("Auto Parts Data")
+    .set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold')]}]))
