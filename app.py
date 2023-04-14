@@ -22,7 +22,7 @@ st.markdown(
     """
     <style>
     .stApp {
-        margin-top: -75px;  /* Adjust this value to remove white space */
+        margin-top: -60px;  /* Adjust this value to remove white space */
     }
     </style>
     """,
