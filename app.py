@@ -101,14 +101,7 @@ st.plotly_chart(fig)
 
 
 
-# Select columns 14 to 31 from filtered_data
-table_columns = filtered_data.iloc[:, 14:32]
+selected_columns = filtered_data.iloc[:, 14:32]
 
-# Transpose the selected columns
-transposed_data = table_columns.T
-
-# Add column names as the first column in the transposed data
-transposed_data.insert(0, 'Column Name', transposed_data.columns)
-
-# Display ag-Grid table
-st.write(agGrid(transposed_data))
+# Display the selected columns using streamlit's st.table function
+st.table(selected_columns)
