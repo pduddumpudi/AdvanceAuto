@@ -101,7 +101,11 @@ st.plotly_chart(fig)
 
 
 
+# Select columns 14 to 31
 selected_columns = filtered_data.iloc[:, 14:32]
 
-# Display the selected columns using streamlit's st.table function
-st.table(selected_columns)
+# Transpose the selected columns
+transposed_data = selected_columns.T
+
+# Display the transposed table using streamlit's st.table function
+st.table(transposed_data)
