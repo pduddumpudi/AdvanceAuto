@@ -22,28 +22,13 @@ st.markdown(
     """
     <style>
     .stApp {
-        margin-top: -50px;  /* Adjust this value to remove white space */
+        margin-top: -100px;  /* Adjust this value to remove white space */
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-
-st.markdown(
-    """
-    <style>
-    .sidebar .sidebar-content {
-        padding-top: 0px;  /* Adjust this value to decrease space */
-        padding-bottom: 0px;  /* Adjust this value to decrease space */
-    }
-    .main .block-container {
-        margin-top: 0px;  /* Adjust this value to decrease space */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 # Apply custom CSS
 #st.markdown('<style>{}</style>'.format(sidebar_style), unsafe_allow_html=True)
