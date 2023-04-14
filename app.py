@@ -65,13 +65,12 @@ fig = go.Figure(data=[go.Table(
                 fill_color='white',
                 line_color='darkslategray',
                 align='center',
-                font=dict(color='#2c8cff', size=14, family='sans-serif'),
-               column_width=[100, 200, 150, 100, 100]),
+                font=dict(color='#2c8cff', size=14, family='sans-serif')
     cells=dict(values=[filtered_data[col] for col in table_columns],
                fill_color='white',
                line_color='darkslategray',
                align='center',
-               font=dict(color='darkslategray', size=16, family='sans-serif'),height=30))
+               font=dict(color='darkslategray', size=16, family='sans-serif'),height=30,width=200))
 ])
 
 # Update table layout
