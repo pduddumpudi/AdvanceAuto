@@ -59,48 +59,21 @@ filtered_data = df[(df['Models'] == selected_model) &
 # Display table title
 st.markdown('<h2 style="font-size: 20px; font-weight: bold;">Part Details</h2>', unsafe_allow_html=True)
 
-# Display filtered data using AgGrid
-gb = GridOptionsBuilder.from_dataframe(filtered_data)
-grid_options = gb.build()
+# Specify columns to be displayed in the table
+table_columns = ['Part No', 'Description', 'Location', 'Current Stock', 'MRP']
 
-AgGrid(filtered_data, gridOptions=grid_options, width=3000, height=500)
+# Create Plotly table with specific columns
+fig = go.Figure(data=[go.Table(
+    header=dict(values=table_columns,
+                fill_color='paleturquoise',
+                align='left'),
+    cells=dict(values=[filtered_data[col] for col in table_columns],
+               fill_color='lavender',
+               align='left'))
+])
 
-# Set custom formatting for the columns
-grid_options = {
-    'columnDefs': [
-        {'field': 'Part No', 'headerName': 'Part No', 'width': 250, 'headerClass': 'ag-header-bold'},
-        {'field': 'Description', 'headerName': 'Description', 'width': 250, 'headerClass': 'ag-header-bold'},
-        {'field': 'Location', 'headerName': 'Location', 'width': 250, 'headerClass': 'ag-header-bold'},
-        {'field': 'Current Stock', 'headerName': 'Current Stock', 'width': 250, 'headerClass': 'ag-header-bold'},
-        {'field': 'MRP', 'headerName': 'MRP', 'width': 250, 'headerClass': 'ag-header-bold'}
-    ],
-    'rowData': filtered_data.to_dict('records'),
-    'fitColumns': True,
-    'rowSelection': 'multiple',  # or 'single',
-       'useCheckboxSelection': True,  # Enable checkbox selection
-    'checkboxSelectionMode': 'single',  # or 'multiple' for multiple selection
-    'maxHeight': 300,  # Maximum height of the table
-    'defaultColDef': {  # Default column definition
-        'sortable': True,  # Enable sorting
-        'resizable': True,  # Enable column resizing
-        'suppressMenu': True,  # Disable column menu
-        'floatingFilter': True,  # Enable floating filters
-    },
-    'suppressRowClickSelection': True,  # Disable row selection by clicking on the row
-    'enableFilter': True,  # Enable global filters
-    'pagination': True,  # Enable pagination
-    'paginationPageSize': 20,  # Number of rows per page
-    'overlayNoRowsTemplate': '<span style="padding: 10px;">No data available</span>',  # Template for empty table
-}
+# Update table layout
+fig.update_layout(width=800, height=300)
 
-# Render AgGrid table
-grid_response = AgGrid(filtered_data, gridOptions=grid_options, width='100%', height='300px')
-
-# Get selected rows
-selected_rows = grid_response['selected_rows']
-
-# Display selected rows data
-if selected_rows:
-    st.markdown('<h3 style="font-size: 18px; font-weight: bold;">Selected Part Details</h3>', unsafe_allow_html=True)
-    selected_data = filtered_data.iloc[selected_rows]
-    st.write(selected_data)
+# Display Plotly table
+st.plotly_chart(fig)
