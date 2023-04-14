@@ -29,6 +29,20 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.markdown(
+    """
+    <style>
+    .sidebar .sidebar-content {
+        margin-bottom: -20px;  /* Adjust this value to reduce space */
+    }
+    .main {
+        margin-left: -30px;  /* Adjust this value to reduce space */
+        margin-right: 0px;  /* Adjust this value to reduce space */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Apply custom CSS
 #st.markdown('<style>{}</style>'.format(sidebar_style), unsafe_allow_html=True)
