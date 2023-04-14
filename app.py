@@ -7,6 +7,7 @@ from st_aggrid.shared import JsCode
 from st_aggrid.grid_options_builder import GridOptionsBuilder
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 
 import streamlit as st
 import pandas as pd
@@ -62,8 +63,24 @@ st.markdown('<h2 style="font-size: 20px; font-weight: bold;">Part Details</h2>',
 
 
 # Display filtered data in a table with bold table header row
-filtered_data_style = filtered_data[['Part No', 'Description', 'Location', 'Current Stock', 'MRP']].style.set_caption("Auto Parts Data")
-filtered_data_style = filtered_data_style.set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold')]},
+#filtered_data_style = filtered_data[['Part No', 'Description', 'Location', 'Current Stock', 'MRP']].style.set_caption("Auto Parts Data")
+#filtered_data_style = filtered_data_style.set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold')]},
                                                             {'selector': 'td', 'props': [('width', '250px')]},  # Set column width
                                                             ])
-st.write(filtered_data_style)
+#st.write(filtered_data_style)
+
+# Create Plotly table
+table_data = [go.Table(
+    header=dict(values=list(filtered_data.columns),
+                fill_color='#2c8cff',  # Set header fill color
+                font=dict(color='white', size=14, bold=True)),  # Set header font properties
+    cells=dict(values=[filtered_data['Part No'], filtered_data['Description'], filtered_data['Location'],
+                        filtered_data['Current Stock'], filtered_data['MRP']],
+               fill_color='#f4f4f8',  # Set cell fill color
+               font=dict(color='black', size=12),  # Set cell font properties
+               height=30  # Set cell height
+               ))
+]
+fig = go.Figure(data=table_data)
+fig.update_layout(width=900, height=300)  # Set table width and height
+st.plotly_chart(fig)
