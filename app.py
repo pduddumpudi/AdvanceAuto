@@ -73,7 +73,7 @@ st.markdown('<h2 style="font-size: 20px; font-weight: bold;">Part Details</h2>',
 table_data = [go.Table(
     header=dict(values=list(filtered_data.columns),
                 fill_color='#2c8cff',  # Set header fill color
-                font=dict(color='white', size=14, bold=True)),  # Set header font properties
+                font=dict(color='white', size=14)),  # Set header font properties
     cells=dict(values=[filtered_data['Part No'], filtered_data['Description'], filtered_data['Location'],
                         filtered_data['Current Stock'], filtered_data['MRP']],
                fill_color='#f4f4f8',  # Set cell fill color
