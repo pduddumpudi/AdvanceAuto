@@ -16,6 +16,7 @@ df = pd.read_excel('Input.xlsx')
 
 # Define sidebar location
 st.sidebar.markdown('<h1 style="color:#2c8cff; font-weight: bold;">Advance Auto Parts</h1>', unsafe_allow_html=True)
+st.sidebar.markdown('<p style="color:#384252; font-weight: bold; font-size:16px;">Welcome to the CBS Dashboard</p>', unsafe_allow_html=True)
 
 # Create dropdowns for user selection
 model_options = df['Models'].unique()
