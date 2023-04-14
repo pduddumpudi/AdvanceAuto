@@ -66,11 +66,12 @@ table_columns = ['Part No', 'Description', 'Location', 'Current Stock', 'MRP']
 fig = go.Figure(data=[go.Table(
     header=dict(values=table_columns,
                 fill_color='white',
-                line_color='darkslategray'
+                line_color='darkslategray',
                 align='center',
                 font=dict(color='darkslategray', size=14, family='sans-serif')),
     cells=dict(values=[filtered_data[col] for col in table_columns],
                fill_color='white',
+               line_color='darkslategray',
                align='center',
                font=dict(color='darkslategray', size=16, family='sans-serif'),height=30))
 ])
