@@ -65,13 +65,13 @@ table_columns = ['Part No', 'Description', 'Location', 'Current Stock', 'MRP']
 # Create Plotly table with specific columns
 fig = go.Figure(data=[go.Table(
     header=dict(values=table_columns,
-                fill_color='paleturquoise',
+                fill_color='white',
                 align='left',
-                font=dict(color='black', size=14, family='Arial')),
+                font=dict(color='black', size=14, family='sans-serif')),
     cells=dict(values=[filtered_data[col] for col in table_columns],
                fill_color='white',
                align='left',
-               font=dict(color='black', size=12, family='Arial')))
+               font=dict(color='black', size=12, family='sans-serif')))
 ])
 
 # Update table layout
