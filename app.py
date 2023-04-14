@@ -108,7 +108,7 @@ def main() -> None:
     st.sidebar.subheader("Filter Displayed Accounts")
     
     # Add custom CSS to set the text color of the sidebar header
-st.markdown(
+    st.markdown(
     """
     <style>
     .sidebar .sidebar-content .sidebar-section .sidebar-section-title {
@@ -117,7 +117,7 @@ st.markdown(
     </style>
     """,
     unsafe_allow_html=True
-)
+    )
 
     accounts = list(df.account_name.unique())
     account_selections = st.sidebar.multiselect(
