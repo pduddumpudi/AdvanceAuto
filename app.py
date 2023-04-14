@@ -36,7 +36,7 @@ st.markdown(
         margin-bottom: -20px;  /* Adjust this value to reduce space */
     }
     .main {
-        margin-left: -30px;  /* Adjust this value to reduce space */
+        margin-left: 70px;  /* Adjust this value to reduce space */
         margin-right: 0px;  /* Adjust this value to reduce space */
     }
     </style>
