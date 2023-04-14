@@ -105,6 +105,8 @@ selected_columns = filtered_data.iloc[:, 14:32]
 # Transpose the selected columns
 transposed_data = selected_columns.T
 
+# Add column names "RO Code" and "Stock" to the transposed data
+transposed_data.columns = ["RO Code", "Stock"]
+
 # Display the transposed table using streamlit's st.table function
 st.table(transposed_data)
-
