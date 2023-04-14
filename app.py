@@ -67,5 +67,7 @@ filtered_data_style = filtered_data[['Part No', 'Description', 'Location', 'Curr
 filtered_data_style = filtered_data_style.set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold')]},
                                                             {'selector': 'td', 'props': [('width', '250px')]},  # Set column width
                                                            ])
-st.write(filtered_data_style)
+
+st.dataframe(filtered_data_style)
+#st.write(filtered_data_style)
 
