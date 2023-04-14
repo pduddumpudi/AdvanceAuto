@@ -17,26 +17,20 @@ from st_aggrid import AgGrid, GridOptionsBuilder
 
 # Load Excel file
 df = pd.read_excel('Input.xlsx')
-
-st.markdown("""
-        <style>
-               .css-18e3th9 {
-                    padding-top: 0rem;
-                    padding-bottom: 10rem;
-                    padding-left: 5rem;
-                    padding-right: 5rem;
-                }
-               .css-1d391kg {
-                    padding-top: 3.5rem;
-                    padding-right: 1rem;
-                    padding-bottom: 3.5rem;
-                    padding-left: 1rem;
-                }
-        </style>
-        """, unsafe_allow_html=True)
+# Add CSS to remove white space at the top
+st.markdown(
+    """
+    <style>
+    .stApp {
+        margin-top: -50px;  /* Adjust this value to remove white space */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Apply custom CSS
-st.markdown('<style>{}</style>'.format(sidebar_style), unsafe_allow_html=True)
+#st.markdown('<style>{}</style>'.format(sidebar_style), unsafe_allow_html=True)
 
 # Define sidebar location
 st.sidebar.markdown('<h1 style="color:#2c8cff; font-weight: bold;">Advance Auto Parts</h1>', unsafe_allow_html=True)
