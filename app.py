@@ -12,6 +12,8 @@ import plotly.graph_objects as go
 import streamlit as st
 import pandas as pd
 
+from st_aggrid import AgGrid, GridOptionsBuilder
+
 # Load Excel file
 df = pd.read_excel('Input.xlsx')
 
@@ -24,7 +26,6 @@ sidebar_style = """
 
 # Apply custom CSS
 st.markdown('<style>{}</style>'.format(sidebar_style), unsafe_allow_html=True)
-
 
 # Define sidebar location
 st.sidebar.markdown('<h1 style="color:#2c8cff; font-weight: bold;">Advance Auto Parts</h1>', unsafe_allow_html=True)
@@ -54,20 +55,13 @@ filtered_data = df[(df['Models'] == selected_model) &
                    (df['Main Group'] == selected_main_group) &
                    (df['New Disc'] == selected_new_disc)]
 
-
-
 # Display table title
-
 st.markdown('<h2 style="font-size: 20px; font-weight: bold;">Part Details</h2>', unsafe_allow_html=True)
 
+# Display filtered data using AgGrid
+gb = GridOptionsBuilder.from_dataframe(filtered_data)
+grid_options = gb.build()
 
+AgGrid(filtered_data, gridOptions=grid_options, width=3000, height=500)
 
-#Display filtered data in a table with bold table header row
-filtered_data_style = filtered_data[['Part No', 'Description', 'Location', 'Current Stock', 'MRP']].style.set_caption("Auto Parts Data")
-filtered_data_style = filtered_data_style.set_table_styles([{'selector': 'th', 'props': [('font-weight', 'bold')]},
-                                                            {'selector': 'td', 'props': [('width', '250px')]},  # Set column width
-                                                           ])
-
-st.dataframe(filtered_data_style,width=3000)
-#st.write(filtered_data_style)
 
