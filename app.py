@@ -99,5 +99,12 @@ fig.update_layout(width=800, height=300, title=dict(text='Part Details', font=di
 # Display Plotly table
 st.plotly_chart(fig)
 
+# Select columns 14 to 31
+selected_columns = filtered_data.iloc[:, 14:32]
 
+# Transpose the selected columns
+transposed_data = selected_columns.T
+
+# Display the transposed table using streamlit's st.table function
+st.table(transposed_data)
 
