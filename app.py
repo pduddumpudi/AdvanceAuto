@@ -107,22 +107,8 @@ table_columns = filtered_data.iloc[:, 14:32]
 # Transpose the selected columns
 transposed_data = table_columns.T
 
-fig = go.Figure(data=[go.Table(columnwidth = [80,170,70,70,70],
-    header=dict(values= ['<b>' + str(col) + '</b>' for col in transposed_data.columns],
-                fill_color='white',
-                line_color='darkslategray',
-                align='center',
-                font=dict(color='#2c8cff', size=14, family='sans-serif')),
-    cells=dict(values=[transposed_data[col] for col in transposed_data.columns],
-               fill_color='white',
-               line_color='darkslategray',
-               align='center',
-               font=dict(color='darkslategray', size=16, family='sans-serif'),
-               height=30)
-)])
+# Add column names as the first column in the transposed data
+transposed_data.insert(0, 'Column Name', transposed_data.columns)
 
-# Update table layout
-fig.update_layout(width=800, height=300, title=dict(text='Part Details', font=dict(size=20, family='sans-serif')))
-
-# Display Plotly table
-st.plotly_chart(fig)
+# Display ag-Grid table
+st.write(agGrid(transposed_data))
