@@ -14,9 +14,20 @@ import pandas as pd
 # Load Excel file
 df = pd.read_excel('Input.xlsx')
 
+# Define custom CSS for the sidebar
+sidebar_style = """
+    .sidebar {
+        margin-left: 50px;
+    }
+"""
+
+# Apply custom CSS
+st.markdown('<style>{}</style>'.format(sidebar_style), unsafe_allow_html=True)
+
+
 # Define sidebar location
 st.sidebar.markdown('<h1 style="color:#2c8cff; font-weight: bold;">Advance Auto Parts</h1>', unsafe_allow_html=True)
-st.sidebar.markdown('<p style="color:#384252; font-weight: bold; font-size:24px;">Welcome to the CBS Dashboard</p>', unsafe_allow_html=True)
+st.sidebar.markdown('<p style="color:#384252; font-weight: bold; font-size:32px;">Welcome to the CBS Dashboard</p>', unsafe_allow_html=True)
 st.sidebar.markdown('<p style="color:#384252;font-size:14px;">Explore auto parts location and availability. Select the below filters to view</p>', unsafe_allow_html=True)
 
 # Create dropdowns for user selection
