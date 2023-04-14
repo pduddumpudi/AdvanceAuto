@@ -54,20 +54,32 @@ st.sidebar.markdown('<p style="color:#384252;font-size:14px;">Explore auto parts
 
 # Create dropdowns for user selection
 model_options = df['Models'].unique()
-selected_model = st.sidebar.selectbox('Select Model', model_options)
+selected_model = st.sidebar.selectbox('Select Model', model_options, key='model')
 
 # Update type options based on selected model
 type_options = df[df['Models'] == selected_model]['Type'].unique()
-selected_type = st.sidebar.selectbox('Select Type', type_options)
+selected_type = st.sidebar.selectbox('Select Type', type_options, key='type')
 
 # Update main group options based on selected model and type
 main_group_options = df[(df['Models'] == selected_model) & (df['Type'] == selected_type)]['Main Group'].unique()
-selected_main_group = st.sidebar.selectbox('Select Main Group', main_group_options)
+selected_main_group = st.sidebar.selectbox('Select Main Group', main_group_options, key='main_group')
 
 # Update new disc options based on selected model, type, and main group
 new_disc_options = df[(df['Models'] == selected_model) & (df['Type'] == selected_type) &
                       (df['Main Group'] == selected_main_group)]['New Disc'].unique()
-selected_new_disc = st.sidebar.selectbox('Select New Disc', new_disc_options)
+selected_new_disc = st.sidebar.selectbox('Select New Disc', new_disc_options, key='new_disc')
+
+# Apply custom CSS to highlight selected filter
+st.sidebar.markdown(
+    f"""
+    <style>
+    .sidebar .sidebar-content select {{
+        background-color: {'#2c8cff' if st.sidebar.selectbox == selected_model else 'white'};
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Filter data based on user selection
 filtered_data = df[(df['Models'] == selected_model) &
