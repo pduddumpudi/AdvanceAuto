@@ -69,17 +69,6 @@ new_disc_options = df[(df['Models'] == selected_model) & (df['Type'] == selected
                       (df['Main Group'] == selected_main_group)]['New Disc'].unique()
 selected_new_disc = st.sidebar.selectbox('Select New Disc', new_disc_options, key='new_disc')
 
-# Apply custom CSS to highlight selected filter
-st.sidebar.markdown(
-    f"""
-    <style>
-    .sidebar .sidebar-content select {{
-        background-color: {'#2c8cff' if st.sidebar.selectbox == selected_model else 'white'};
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 # Filter data based on user selection
 filtered_data = df[(df['Models'] == selected_model) &
@@ -97,6 +86,34 @@ fig = go.Figure(data=[go.Table(columnwidth = [80,170,70,70,70],
                 align='center',
                 font=dict(color='#2c8cff', size=14, family='sans-serif')),
     cells=dict(values=[filtered_data[col] for col in table_columns],
+               fill_color='white',
+               line_color='darkslategray',
+               align='center',
+               font=dict(color='darkslategray', size=16, family='sans-serif'),
+               height=30)
+)])
+
+# Update table layout
+fig.update_layout(width=800, height=300, title=dict(text='Part Details', font=dict(size=20, family='sans-serif')))
+
+# Display Plotly table
+st.plotly_chart(fig)
+
+
+
+# Transpose columns of filtered_data
+transposed_data = filtered_data.columns[14:32].T
+
+# Specify column positions to be displayed in the table (columns 14 to 31)
+table_columns = transposed_data
+
+fig = go.Figure(data=[go.Table(
+    header=dict(values= ['<b>' + str(col) + '</b>' for col in table_columns],
+                fill_color='white',
+                line_color='darkslategray',
+                align='center',
+                font=dict(color='#2c8cff', size=14, family='sans-serif')),
+    cells=dict(values=[transposed_data[col] for col in table_columns],
                fill_color='white',
                line_color='darkslategray',
                align='center',
