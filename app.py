@@ -108,4 +108,4 @@ selected_columns = filtered_data.iloc[:, 14:32]
 transposed_data = selected_columns.T
 
 # Display the transposed table using Ag-Grid in Streamlit
-streamlit_aggrid.grid(transposed_data)
+st_aggrid.grid(transposed_data)
