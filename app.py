@@ -14,6 +14,7 @@ import pandas as pd
 
 from st_aggrid import AgGrid, GridOptionsBuilder
 
+
 # Load Excel file
 df = pd.read_excel('Input.xlsx')
 
@@ -64,4 +65,42 @@ grid_options = gb.build()
 
 AgGrid(filtered_data, gridOptions=grid_options, width=3000, height=500)
 
+# Set custom formatting for the columns
+grid_options = {
+    'columnDefs': [
+        {'field': 'Part No', 'headerName': 'Part No', 'width': 250, 'headerClass': 'ag-header-bold'},
+        {'field': 'Description', 'headerName': 'Description', 'width': 250, 'headerClass': 'ag-header-bold'},
+        {'field': 'Location', 'headerName': 'Location', 'width': 250, 'headerClass': 'ag-header-bold'},
+        {'field': 'Current Stock', 'headerName': 'Current Stock', 'width': 250, 'headerClass': 'ag-header-bold'},
+        {'field': 'MRP', 'headerName': 'MRP', 'width': 250, 'headerClass': 'ag-header-bold'}
+    ],
+    'rowData': filtered_data.to_dict('records'),
+    'fitColumns': True,
+    'rowSelection': 'multiple',  # or 'single',
+       'useCheckboxSelection': True,  # Enable checkbox selection
+    'checkboxSelectionMode': 'single',  # or 'multiple' for multiple selection
+    'maxHeight': 300,  # Maximum height of the table
+    'defaultColDef': {  # Default column definition
+        'sortable': True,  # Enable sorting
+        'resizable': True,  # Enable column resizing
+        'suppressMenu': True,  # Disable column menu
+        'floatingFilter': True,  # Enable floating filters
+    },
+    'suppressRowClickSelection': True,  # Disable row selection by clicking on the row
+    'enableFilter': True,  # Enable global filters
+    'pagination': True,  # Enable pagination
+    'paginationPageSize': 20,  # Number of rows per page
+    'overlayNoRowsTemplate': '<span style="padding: 10px;">No data available</span>',  # Template for empty table
+}
 
+# Render AgGrid table
+grid_response = AgGrid(filtered_data, gridOptions=grid_options, width='100%', height='300px')
+
+# Get selected rows
+selected_rows = grid_response['selected_rows']
+
+# Display selected rows data
+if selected_rows:
+    st.markdown('<h3 style="font-size: 18px; font-weight: bold;">Selected Part Details</h3>', unsafe_allow_html=True)
+    selected_data = filtered_data.iloc[selected_rows]
+    st.write(selected_data)
