@@ -107,25 +107,11 @@ selected_columns = filtered_data.iloc[:, 14:32]
 # Transpose the selected columns
 transposed_data = selected_columns.T
 
-# Create a Plotly table
-table_columns = transposed_data.columns.tolist()
-
+# Convert transposed_data to a Plotly table
 fig = go.Figure(data=[go.Table(
-    header=dict(values=['<b>' + str(col) + '</b>' for col in table_columns],
-                fill_color='white',
-                line_color='darkslategray',
-                align='center',
-                font=dict(color='#2c8cff', size=14, family='sans-serif')),
-    cells=dict(values=[transposed_data[col] for col in table_columns],
-               fill_color='white',
-               line_color='darkslategray',
-               align='center',
-               font=dict(color='darkslategray', size=16, family='sans-serif'),
-               height=30))
+    header=dict(values=list(transposed_data.columns)),
+    cells=dict(values=[transposed_data[col] for col in transposed_data.columns]))
 ])
 
-# Update table layout
-fig.update_layout(width=800, height=300, title=dict(text='Transposed Part Details', font=dict(size=20, family='sans-serif')))
-
-# Display Plotly table
+# Display the Plotly table in Streamlit
 st.plotly_chart(fig)
