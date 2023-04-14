@@ -107,11 +107,5 @@ selected_columns = filtered_data.iloc[:, 14:32]
 # Transpose the selected columns
 transposed_data = selected_columns.T
 
-# Convert transposed_data to a Plotly table
-fig = go.Figure(data=[go.Table(
-    header=dict(values=list(transposed_data.columns)),
-    cells=dict(values=[transposed_data[col] for col in transposed_data.columns]))
-])
-
-# Display the Plotly table in Streamlit
-st.plotly_chart(fig)
+# Display the transposed table using Ag-Grid in Streamlit
+stg.grid(transposed_data)
