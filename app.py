@@ -56,8 +56,8 @@ filtered_data = df[(df['Models'] == selected_model) &
 
 
 # Display table title
-st.write('')
-st.markdown('<h2 style="font-size: 16px; font-weight: bold;">Filtered Auto Parts</h2>', unsafe_allow_html=True)
+
+st.markdown('<h2 style="font-size: 20px; font-weight: bold;">Filtered Auto Parts</h2>', unsafe_allow_html=True)
 
 # Display filtered data in a table with bold table header row
 st.write(filtered_data[['Part No', 'Description', 'Location', 'Current Stock', 'MRP']].style.set_caption("Auto Parts Data")
