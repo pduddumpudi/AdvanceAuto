@@ -8,7 +8,7 @@ from st_aggrid.grid_options_builder import GridOptionsBuilder
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-import streamlit_aggrid as stg
+
 import streamlit as st
 import pandas as pd
 
@@ -101,11 +101,3 @@ st.plotly_chart(fig)
 
 
 
-# Select columns 14 to 31
-selected_columns = filtered_data.iloc[:, 14:32]
-
-# Transpose the selected columns
-transposed_data = selected_columns.T
-
-# Display the transposed table using Ag-Grid in Streamlit
-stg.grid(transposed_data)
