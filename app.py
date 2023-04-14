@@ -59,7 +59,7 @@ filtered_data = df[(df['Models'] == selected_model) &
 # Specify columns to be displayed in the table
 table_columns = ['Part No', 'Description', 'Location', 'Current Stock', 'MRP']
 
-fig = go.Figure(data=[go.Table(columnwidth = [80,400,20,20,20],
+fig = go.Figure(data=[go.Table(columnwidth = [80,200,50,50,50],
     header=dict(values= ['<b>' + entry + '</b>' for entry in table_columns],
                 fill_color='white',
                 line_color='darkslategray',
