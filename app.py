@@ -66,16 +66,17 @@ table_columns = ['Part No', 'Description', 'Location', 'Current Stock', 'MRP']
 fig = go.Figure(data=[go.Table(
     header=dict(values=table_columns,
                 fill_color='white',
-                align='left',
-                font=dict(color='black', size=14, family='sans-serif')),
+                line_color='darkslategray'
+                align='center',
+                font=dict(color='darkslategray', size=14, family='sans-serif')),
     cells=dict(values=[filtered_data[col] for col in table_columns],
                fill_color='white',
-               align='left',
-               font=dict(color='black', size=12, family='sans-serif')))
+               align='center',
+               font=dict(color='darkslategray', size=16, family='sans-serif'),height=30))
 ])
 
 # Update table layout
-fig.update_layout(width=800, height=300,title='Part Details')
+fig.update_layout(width=1400, height=300,title='Part Details')
 
 # Display Plotly table
 st.plotly_chart(fig)
