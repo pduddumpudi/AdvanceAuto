@@ -68,6 +68,6 @@ filtered_data_style = filtered_data_style.set_table_styles([{'selector': 'th', '
                                                             {'selector': 'td', 'props': [('width', '250px')]},  # Set column width
                                                            ])
 
-st.dataframe(filtered_data_style)
+st.dataframe(filtered_data_style,width=250)
 #st.write(filtered_data_style)
 
