@@ -59,19 +59,19 @@ filtered_data = df[(df['Models'] == selected_model) &
 # Specify columns to be displayed in the table
 table_columns = ['Part No', 'Description', 'Location', 'Current Stock', 'MRP']
 
-# Create Plotly table with specific columns
 fig = go.Figure(data=[go.Table(
     header=dict(values= ['<b>' + entry + '</b>' for entry in table_columns],
                 fill_color='white',
                 line_color='darkslategray',
                 align='center',
-                font=dict(color='#2c8cff', size=14, family='sans-serif')
+                font=dict(color='#2c8cff', size=14, family='sans-serif')),
     cells=dict(values=[filtered_data[col] for col in table_columns],
                fill_color='white',
                line_color='darkslategray',
                align='center',
-               font=dict(color='darkslategray', size=16, family='sans-serif'),height=30)
-])
+               font=dict(color='darkslategray', size=16, family='sans-serif'),
+               height=30)
+)])
 
 # Update table layout
 fig.update_layout(width=800, height=300, title=dict(text='Part Details', font=dict(size=20, family='sans-serif')))
