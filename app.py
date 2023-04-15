@@ -101,12 +101,25 @@ st.plotly_chart(fig)
 
 
 # Select columns 14 to 31
-selected_columns = filtered_data.iloc[:, 14:32]
+#selected_columns = filtered_data.iloc[:, 14:32]
 
 # Transpose the selected columns
-transposed_data = selected_columns.T
+#transposed_data = selected_columns.T
 
 # Display the transposed table using st.write
+#st.table(transposed_data)
+
+
+# Select columns 14 to 31
+selected_columns = filtered_data.iloc[:, 14:32]
+
+# Get values from column 6
+column_6_values = filtered_data.iloc[:, 5].values
+
+# Transpose selected columns
+transposed_data = selected_columns.T
+
+# Set column names as transformed data
+transposed_data.columns = column_6_values
+
 st.table(transposed_data)
-
-
