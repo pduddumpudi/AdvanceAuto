@@ -331,12 +331,11 @@ css_classes = [{'selector': 'table',
 # Render the formatted dataframe as HTML string
 formatted_df_html = formatted_df.render()
 
-# Create a div wrapper for the table
-table_wrapper = f'<div id="table-wrapper">{formatted_df_html}</div>'
+# Create a div wrapper for the table with margin reduction styles
+table_wrapper = f'<div style="margin-top: -100px; margin-bottom: -50px;">{formatted_df_html}</div>'
 
 # Display the formatted dataframe with reduced margin using st.write() with unsafe_allow_html=True
 st.write(table_wrapper, unsafe_allow_html=True)
-
 # Apply formatting to the dataframe
 #formatted_df = transposed_data.style.set_table_attributes('class="dataframe"').set_table_styles(css_classes)
 
