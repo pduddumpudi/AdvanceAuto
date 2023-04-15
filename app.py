@@ -136,10 +136,7 @@ transposed_data.columns = column_6_values
 
 
 # Define CSS classes for table formatting
-css_classes = [{'selector': 'table',  # Select the table element
-                'props': [('border-collapse', 'collapse'),  # Set border collapse to collapse
-                          ('border', '1px solid #000'),  # Add a 1px solid black border to all cells
-                          ('border-color', 'black')]},  # Set the border color to black
+css_classes = [{'selector': 'table',  # Select the table element                'props': [('border-collapse', 'collapse'),  # Set border collapse to collapse                          ('border', '1px solid #000'),  # Add a 1px solid black border to all cells                          ('border-color', 'black')]},  # Set the border color to black
                {'selector': 'th:first-child',  # Select the first child (row header)
                 'props': [('font-weight', 'bold'),
                           ('text-align', 'center'),
@@ -153,8 +150,11 @@ css_classes = [{'selector': 'table',  # Select the table element
                           ('border-color', 'black')]},  # Set the border color to black
                {'selector': 'td',  # Select all td elements (table data cells)
                 'props': [('text-align', 'center'),
+                          ('margin-left', 'auto'),  # Add margin-left:auto for center alignment
+                          ('margin-right', 'auto'),  # Add margin-right:auto for center alignment
                           ('border', '1px solid #000'),  # Add a 1px solid black border to table data cells
-                          ('border-color', 'black')]}]  # Set the border color to black
+                          ('border-color', 'black')]}]  # Set the border color to black.
+
 
 # Apply formatting to the dataframe
 formatted_df = transposed_data.style.set_table_attributes('class="dataframe"').set_table_styles(css_classes)
