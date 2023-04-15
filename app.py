@@ -123,3 +123,32 @@ transposed_data = selected_columns.T
 transposed_data.columns = column_6_values
 
 st.table(transposed_data)
+# Apply formatting to the table
+table_style = """
+<style>
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: left;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+tr:hover {
+  background-color: #eaeaea;
+}
+</style>
+"""
+st.markdown(table_style, unsafe_allow_html=True)
