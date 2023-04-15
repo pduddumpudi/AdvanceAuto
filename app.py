@@ -149,10 +149,10 @@ css_classes = [{'selector': 'table',
                           ('border', '1px solid #000'),
                           ('border-color', 'black')]},  # Set the border color to black
                {'selector': '.dataframe',  # Add margin reduction styles
-                'props': [('margin-top', '-10px'),
-                          ('margin-bottom', '-10px')]},  # Set negative margins to reduce spacing
+                'props': [('margin-top', '-100px'),
+                          ('margin-bottom', '-50px')]},  # Set negative margins to reduce spacing
                {'selector': '.dataframe th, .dataframe td',  # Add padding reduction styles
-                'props': [('padding-top', '5px'),
+                'props': [('padding-top', '-100px'),
                           ('padding-bottom', '5px'),
                           ('padding-left', '5px'),
                           ('padding-right', '5px')]  # Set padding values to reduce spacing
