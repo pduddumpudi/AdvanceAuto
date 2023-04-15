@@ -16,7 +16,7 @@ import pandas as pd
 
 from st_aggrid import AgGrid, GridOptionsBuilder
 
-#st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 
 # Load Excel file
 df = pd.read_excel('Input.xlsx')
