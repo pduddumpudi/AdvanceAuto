@@ -259,12 +259,5 @@ css_classes = [{'selector': 'table',
 # Apply formatting to the dataframe
 formatted_df = transposed_data.style.set_table_attributes('class="dataframe"').set_table_styles(css_classes)
 
-# Display the formatted dataframe using st.write() with html string
-
-st.write(formatted_df.render(), unsafe_allow_html=True)
-
-# Apply formatting to the dataframe
-#formatted_df = transposed_data.style.set_table_attributes('class="dataframe"').set_table_styles(css_classes)
-
 # Display the formatted dataframe using st.table
-#st.table(formatted_df)
+st.table(formatted_df)
