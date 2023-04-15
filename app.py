@@ -143,6 +143,7 @@ css_classes = [{'selector': 'table',  # Select the table element
                {'selector': 'th:first-child',  # Select the first child (row header)
                 'props': [('font-weight', 'bold'),
                           ('text-align', 'center'),
+                          ('color', '#384252'),
                           ('border', '1px solid #000'),
                           ('border-color', 'black')]},  # Formatting applied to the first row header
                {'selector': 'th:not(:first-child)',  # Exclude the first child (row header)
