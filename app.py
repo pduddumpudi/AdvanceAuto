@@ -149,6 +149,10 @@ tr:nth-child(even) {
 tr:hover {
   background-color: #eaeaea;
 }
+
+th div {
+  font-weight: bold;
+}
 </style>
 """
 st.markdown(table_style, unsafe_allow_html=True)
