@@ -94,7 +94,7 @@ fig = go.Figure(data=[go.Table(columnwidth = [80,170,70,70,70],
 )])
 
 # Update table layout
-fig.update_layout(width=800, height=300, title=dict(text='Part Details', font=dict(size=20, family='sans-serif')))
+fig.update_layout(width=800, height=300, title=dict(text='Part Details', font=dict(size=20, family='sans-serif')),margin=dict(b=20))
 
 # Display Plotly table
 st.plotly_chart(fig)
@@ -122,16 +122,6 @@ transposed_data = selected_columns.T
 # Set column names as transformed data
 transposed_data.columns = column_6_values
 
-#st.table(transposed_data)
-
-
-# Apply formatting to the dataframe
-#formatted_df = transposed_data.style.set_table_styles([{'selector': 'th',
-#                                           'props': [('font-weight', 'bold'),
-#                                                     ('text-align', 'center'),
-#                                                     ('color', '#2c8cff')]},
- #                                         {'selector': 'td',
-  #                                         'props': [('text-align', 'center')]}])
 
 
 
