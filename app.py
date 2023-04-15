@@ -129,7 +129,9 @@ transposed_data.columns = column_6_values
 formatted_df = transposed_data.style.set_table_styles([{'selector': 'th',
                                            'props': [('font-weight', 'bold'),
                                                      ('text-align', 'center'),
-                                                     ('color', '#2c8cff')]}])
+                                                     ('color', '#2c8cff')]},
+                                          {'selector': 'td',
+                                           'props': [('text-align', 'center')]}])
 
 
 # Display the formatted dataframe using st.table
