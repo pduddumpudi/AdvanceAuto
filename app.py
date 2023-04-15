@@ -161,7 +161,7 @@ css_classes = [{'selector': 'table',
 parent_container_css = '''
 <style>
 .parent-container {
-    margin-top: 50px;  /* Set negative margin to reduce top margin */
+    margin-top: -100px;  /* Set negative margin to reduce top margin */
 }
 </style>
 '''
