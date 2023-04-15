@@ -133,12 +133,12 @@ transposed_data.columns = column_6_values
  #                                         {'selector': 'td',
   #                                         'props': [('text-align', 'center')]}])
 
-
-# Apply formatting to the dataframe
 formatted_df = transposed_data.style.set_table_styles([
-    {'selector': 'th:not(:first-child)',  # Exclude the first child (row header)
+    {'selector': 'th:first-child',  # Select the first child (row header)
      'props': [('font-weight', 'bold'),
-               ('text-align', 'center'),
+               ('text-align', 'center')]},  # Formatting applied to the first row header
+    {'selector': 'th:not(:first-child)',  # Exclude the first child (row header)
+     'props': [('text-align', 'center'),
                ('color', '#2c8cff')]},  # Formatting applied to column headers
     {'selector': 'td',
      'props': [('text-align', 'center')]}]
