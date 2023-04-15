@@ -142,7 +142,9 @@ css_classes = [{'selector': 'table',  # Select the table element
                           ('border-color', 'black')]},  # Set the border color to black
                {'selector': 'th:first-child',  # Select the first child (row header)
                 'props': [('font-weight', 'bold'),
-                          ('text-align', 'center')]},  # Formatting applied to the first row header
+                          ('text-align', 'center'),
+                         ('border', '1px solid #000'),
+                         ('border-color', 'black')]},  # Formatting applied to the first row header
                {'selector': 'th:not(:first-child)',  # Exclude the first child (row header)
                 'props': [('text-align', 'center'),
                           ('font-weight', 'bold'),
