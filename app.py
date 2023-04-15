@@ -173,8 +173,9 @@ css_classes = [{'selector': 'table',
 
 # Set table title
 table_title = 'Other location details'
-
+font_size = 24 
 # Display table with title using st.markdown
-st.markdown(f"<h1 style='text-align: center;'>{table_title}</h1>", unsafe_allow_html=True)
+st.markdown(f"<h1 style='text-align: center; font-size: {font_size}px;'>{table_title}</h1>", unsafe_allow_html=True)
+
 formatted_df = transposed_data.style.set_table_attributes('class="dataframe"').set_table_styles(css_classes)
 st.table(formatted_df)
