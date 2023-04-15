@@ -171,7 +171,7 @@ css_classes = [{'selector': 'table',
 
 
 # Set table title
-table_title = 'Other location details'
+table_title = 'Other location details (Stock Qty)'
 font_size = 20 
 # Display table with title using st.markdown
 st.markdown(f"<h1 style='text-align: left; font-size: {font_size}px;'>{table_title}</h1>", unsafe_allow_html=True)
