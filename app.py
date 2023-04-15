@@ -142,7 +142,10 @@ formatted_df = transposed_data.style.set_table_styles([
                ('font-weight', 'bold'),
                ('color', '#2c8cff')]},  # Formatting applied to column headers
     {'selector': 'td',  # Select all td elements (table data cells)
-     'props': [('text-align', 'center')]}]  # Formatting applied to table data cells
+     'props': [('text-align', 'center')]}],  # Formatting applied to table data cells
+    table_properties=[('border-collapse', 'collapse'),  # Set border collapse to collapse
+                      ('border', '1px solid #000'),  # Add a 1px solid black border to all cells
+                      ('border-color', 'black')]  # Set the border color to black
 )
 # Display the formatted dataframe using st.table
 st.table(formatted_df)
