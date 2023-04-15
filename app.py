@@ -136,12 +136,15 @@ transposed_data.columns = column_6_values
 
 
 # Define CSS classes for table formatting
-css_classes = [{'selector': 'table',  # Select the table element                'props': [('border-collapse', 'collapse'),  # Set border collapse to collapse                          ('border', '1px solid #000'),  # Add a 1px solid black border to all cells                          ('border-color', 'black')]},  # Set the border color to black
+css_classes = [{'selector': 'table',  # Select the table element                
+                'props': [('border-collapse', 'collapse'),  # Set border collapse to collapse                          
+                          ('border', '1px solid #000'),  # Add a 1px solid black border to all cells                          
+                          ('border-color', 'black')]},  # Set the border color to black
                {'selector': 'th:first-child',  # Select the first child (row header)
                 'props': [('font-weight', 'bold'),
                           ('text-align', 'center'),
-                         ('border', '1px solid #000'),
-                         ('border-color', 'black')]},  # Formatting applied to the first row header
+                          ('border', '1px solid #000'),
+                          ('border-color', 'black')]},  # Formatting applied to the first row header
                {'selector': 'th:not(:first-child)',  # Exclude the first child (row header)
                 'props': [('text-align', 'center'),
                           ('font-weight', 'bold'),
