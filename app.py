@@ -126,7 +126,7 @@ transposed_data.columns = column_6_values
 
 
 # Apply formatting to the dataframe
-formatted_df = df.style.set_table_styles([{'selector': 'th',
+formatted_df = transposed_data.style.set_table_styles([{'selector': 'th',
                                            'props': [('font-weight', 'bold'),
                                                      ('text-align', 'center'),
                                                      ('color', '#2c8cff')]}])
