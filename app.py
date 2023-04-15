@@ -66,12 +66,12 @@ selected_type = st.sidebar.selectbox('Select Type', type_options, key='type')
 
 # Update main group options based on selected model and type
 main_group_options = df[(df['Models'] == selected_model) & (df['Type'] == selected_type)]['Main Group'].unique()
-selected_main_group = st.sidebar.selectbox('Select Main Group', main_group_options, key='main_group')
+selected_main_group = st.sidebar.selectbox('Select Part Group', main_group_options, key='main_group')
 
 # Update new disc options based on selected model, type, and main group
 new_disc_options = df[(df['Models'] == selected_model) & (df['Type'] == selected_type) &
                       (df['Main Group'] == selected_main_group)]['New Disc'].unique()
-selected_new_disc = st.sidebar.selectbox('Select New Disc', new_disc_options, key='new_disc')
+selected_new_disc = st.sidebar.selectbox('Select Part', new_disc_options, key='new_disc')
 
 
 # Filter data based on user selection
