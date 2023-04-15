@@ -139,6 +139,7 @@ formatted_df = transposed_data.style.set_table_styles([
                ('text-align', 'center')]},  # Formatting applied to the first row header
     {'selector': 'th:not(:first-child)',  # Exclude the first child (row header)
      'props': [('text-align', 'center'),
+               ('font-weight', 'bold'),
                ('color', '#2c8cff')]},  # Formatting applied to column headers
     {'selector': 'td',
      'props': [('text-align', 'center')]}]
