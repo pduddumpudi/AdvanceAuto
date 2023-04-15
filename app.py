@@ -17,6 +17,15 @@ import pandas as pd
 from st_aggrid import AgGrid, GridOptionsBuilder
 
 
+padding = 0
+st.markdown(f""" <style>
+    .reportview-container .main .block-container{{
+        padding-top: {padding}rem;
+        padding-right: {padding}rem;
+        padding-left: {padding}rem;
+        padding-bottom: {padding}rem;
+    }} </style> """, unsafe_allow_html=True)
+
 # Load Excel file
 df = pd.read_excel('Input.xlsx')
 # Add CSS to remove white space at the top
