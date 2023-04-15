@@ -56,24 +56,22 @@ st.sidebar.markdown('<p style="color:#384252; font-weight: bold; font-size:32px;
 st.sidebar.markdown('<p style="color:#384252;font-size:14px;">Explore auto parts location and availability. Select the below filters to view</p>', unsafe_allow_html=True)
 
 
-# Create dropdowns for user selection
-with st.sidebar:
-    st.markdown("**Select Model**")  # Format dropdown title with Markdown
-    model_options = df['Models'].unique()
-    selected_model = st.selectbox('', model_options, key='model')
+ # Create dropdowns for user selection
+model_options = df['Models'].unique()
+selected_model = st.sidebar.selectbox('Select Model', model_options, key='model')
 
-    st.markdown("## **Select Type**")  # Format dropdown title with Markdown
-    type_options = df[df['Models'] == selected_model]['Type'].unique()
-    selected_type = st.selectbox('', type_options, key='type')
+# Update type options based on selected model
+type_options = df[df['Models'] == selected_model]['Type'].unique()
+selected_type = st.sidebar.selectbox('Select Type', type_options, key='type')
 
-    st.markdown("## **Select Main Group**")  # Format dropdown title with Markdown
-    main_group_options = df[(df['Models'] == selected_model) & (df['Type'] == selected_type)]['Main Group'].unique()
-    selected_main_group = st.sidebar.selectbox('', main_group_options, key='main_group')
-    
-    st.markdown("## **Select New Disc**")  # Format dropdown title with Markdown
-    new_disc_options = df[(df['Models'] == selected_model) & (df['Type'] == selected_type) &
+# Update main group options based on selected model and type
+main_group_options = df[(df['Models'] == selected_model) & (df['Type'] == selected_type)]['Main Group'].unique()
+selected_main_group = st.sidebar.selectbox('Select Main Group', main_group_options, key='main_group')
+
+# Update new disc options based on selected model, type, and main group
+new_disc_options = df[(df['Models'] == selected_model) & (df['Type'] == selected_type) &
                       (df['Main Group'] == selected_main_group)]['New Disc'].unique()
-    selected_new_disc = st.sidebar.selectbox('', new_disc_options, key='new_disc')
+selected_new_disc = st.sidebar.selectbox('Select New Disc', new_disc_options, key='new_disc')
 
 
 # Filter data based on user selection
