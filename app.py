@@ -144,6 +144,5 @@ formatted_df = transposed_data.style.set_table_styles([
     {'selector': 'td',  # Select all td elements (table data cells)
      'props': [('text-align', 'center')]}]  # Formatting applied to table data cells
 )
-
 # Display the formatted dataframe using st.table
 st.table(formatted_df)
