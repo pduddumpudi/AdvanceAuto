@@ -58,7 +58,7 @@ st.sidebar.markdown('<p style="color:#384252;font-size:14px;">Explore auto parts
 
 # Create dropdowns for user selection
 with st.sidebar:
-    st.markdown("## **Select Model**")  # Format dropdown title with Markdown
+    st.markdown("**Select Model**")  # Format dropdown title with Markdown
     model_options = df['Models'].unique()
     selected_model = st.selectbox('', model_options, key='model')
 
