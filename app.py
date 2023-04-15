@@ -126,29 +126,37 @@ transposed_data.columns = column_6_values
 
 
 # Define CSS classes for table formatting
-css_classes = [{'selector': 'table',  # Select the table element                
-                'props': [('border-collapse', 'collapse'),  # Set border collapse to collapse                          
-                          ('border', '1px solid #000'),  # Add a 1px solid black border to all cells                          
-                          ('border-color', 'black')]},  # Set the border color to black
-               {'selector': 'th:first-child',  # Select the first child (row header)
+css_classes = [{'selector': 'table',
+                'props': [('border-collapse', 'collapse'),
+                          ('border', '1px solid #000'),
+                          ('border-color', 'black')]},
+               {'selector': 'th:first-child',
                 'props': [('font-weight', 'bold'),
                           ('text-align', 'center'),
                           ('color', '#384252'),
                           ('border', '1px solid #000'),
-                          ('border-color', 'black')]},  # Formatting applied to the first row header
-               {'selector': 'th:not(:first-child)',  # Exclude the first child (row header)
+                          ('border-color', 'black')]},
+               {'selector': 'th:not(:first-child)',
                 'props': [('text-align', 'center'),
                           ('font-weight', 'bold'),
                           ('color', '#2c8cff'),
-                          ('border', '1px solid #000'),  # Add a 1px solid black border to column headers
-                          ('border-color', 'black')]},  # Set the border color to black
-               {'selector': 'td',  # Select all td elements (table data cells)
+                          ('border', '1px solid #000'),
+                          ('border-color', 'black')]},
+               {'selector': 'td',
                 'props': [('text-align', 'center'),
-                          ('margin-left', 'auto'),  # Add margin-left:auto for center alignment
-                          ('margin-right', 'auto'),  # Add margin-right:auto for center alignment
-                          ('border', '1px solid #000'),  # Add a 1px solid black border to table data cells
-                          ('border-color', 'black')]}]  # Set the border color to black.
-
+                          ('margin-left', 'auto'),
+                          ('margin-right', 'auto'),
+                          ('border', '1px solid #000'),
+                          ('border-color', 'black')]},  # Set the border color to black
+               {'selector': '.dataframe',  # Add margin reduction styles
+                'props': [('margin-top', '-10px'),
+                          ('margin-bottom', '-10px')]},  # Set negative margins to reduce spacing
+               {'selector': '.dataframe th, .dataframe td',  # Add padding reduction styles
+                'props': [('padding-top', '5px'),
+                          ('padding-bottom', '5px'),
+                          ('padding-left', '5px'),
+                          ('padding-right', '5px')]  # Set padding values to reduce spacing
+                }]
 
 # Apply formatting to the dataframe
 formatted_df = transposed_data.style.set_table_attributes('class="dataframe"').set_table_styles(css_classes)
