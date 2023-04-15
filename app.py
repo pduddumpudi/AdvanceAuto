@@ -133,19 +133,29 @@ transposed_data.columns = column_6_values
  #                                         {'selector': 'td',
   #                                         'props': [('text-align', 'center')]}])
 
-formatted_df = transposed_data.style.set_table_styles([
-    {'selector': 'th:first-child',  # Select the first child (row header)
-     'props': [('font-weight', 'bold'),
-               ('text-align', 'center')]},  # Formatting applied to the first row header
-    {'selector': 'th:not(:first-child)',  # Exclude the first child (row header)
-     'props': [('text-align', 'center'),
-               ('font-weight', 'bold'),
-               ('color', '#2c8cff')]},  # Formatting applied to column headers
-    {'selector': 'td',  # Select all td elements (table data cells)
-     'props': [('text-align', 'center')]}],  # Formatting applied to table data cells
-    table_properties=[('border-collapse', 'collapse'),  # Set border collapse to collapse
-                      ('border', '1px solid #000'),  # Add a 1px solid black border to all cells
-                      ('border-color', 'black')]  # Set the border color to black
-)
+
+
+# Define CSS classes for table formatting
+css_classes = [{'selector': 'table',  # Select the table element
+                'props': [('border-collapse', 'collapse'),  # Set border collapse to collapse
+                          ('border', '1px solid #000'),  # Add a 1px solid black border to all cells
+                          ('border-color', 'black')]},  # Set the border color to black
+               {'selector': 'th:first-child',  # Select the first child (row header)
+                'props': [('font-weight', 'bold'),
+                          ('text-align', 'center')]},  # Formatting applied to the first row header
+               {'selector': 'th:not(:first-child)',  # Exclude the first child (row header)
+                'props': [('text-align', 'center'),
+                          ('font-weight', 'bold'),
+                          ('color', '#2c8cff'),
+                          ('border', '1px solid #000'),  # Add a 1px solid black border to column headers
+                          ('border-color', 'black')]},  # Set the border color to black
+               {'selector': 'td',  # Select all td elements (table data cells)
+                'props': [('text-align', 'center'),
+                          ('border', '1px solid #000'),  # Add a 1px solid black border to table data cells
+                          ('border-color', 'black')]}]  # Set the border color to black
+
+# Apply formatting to the dataframe
+formatted_df = transposed_data.style.set_table_attributes('class="dataframe"').set_table_styles(css_classes)
+
 # Display the formatted dataframe using st.table
 st.table(formatted_df)
