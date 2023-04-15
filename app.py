@@ -254,94 +254,14 @@ css_classes = [{'selector': 'table',
                 }]
 
 
+
+
 # Apply formatting to the dataframe
 formatted_df = transposed_data.style.set_table_attributes('class="dataframe"').set_table_styles(css_classes)
 
 # Display the formatted dataframe using st.write() with html string
 
 st.write(formatted_df.render(), unsafe_allow_html=True)
-
-# Apply formatting to the dataframe
-#formatted_df = transposed_data.style.set_table_attributes('class="dataframe"').set_table_styles(css_classes)
-
-# Display the formatted dataframe using st.table
-#st.table(formatted_df)
-# Display Plotly table
-st.plotly_chart(fig)
-
-
-# Select columns 14 to 31
-#selected_columns = filtered_data.iloc[:, 14:32]
-
-# Transpose the selected columns
-#transposed_data = selected_columns.T
-
-# Display the transposed table using st.write
-#st.table(transposed_data)
-
-
-# Select columns 14 to 31
-selected_columns = filtered_data.iloc[:, 14:32]
-
-# Get values from column 6
-column_6_values = filtered_data.iloc[:, 5].values
-
-# Transpose selected columns
-transposed_data = selected_columns.T
-
-# Set column names as transformed data
-transposed_data.columns = column_6_values
-
-
-
-# Define CSS classes for table formatting
-css_classes = [{'selector': 'table',
-                'props': [('border-collapse', 'collapse'),
-                          ('border', '1px solid #000'),
-                          ('border-color', 'black')]},
-               {'selector': 'th:first-child',
-                'props': [('font-weight', 'bold'),
-                          ('text-align', 'center'),
-                          ('color', '#384252'),
-                          ('border', '1px solid #000'),
-                          ('border-color', 'black')]},
-               {'selector': 'th:not(:first-child)',
-                'props': [('text-align', 'center'),
-                          ('font-weight', 'bold'),
-                          ('color', '#2c8cff'),
-                          ('border', '1px solid #000'),
-                          ('border-color', 'black')]},
-               {'selector': 'td',
-                'props': [('text-align', 'center'),
-                          ('margin-left', 'auto'),
-                          ('margin-right', 'auto'),
-                          ('border', '1px solid #000'),
-                          ('border-color', 'black')]},
-               {'selector': '#table-wrapper',  # Add margin reduction styles to the wrapper div
-                'props': [('margin-top', '-100px'),  # Update margin-top to reduce top margin
-                          ('margin-bottom', '-50px')]  # Update margin-bottom to reduce bottom margin
-                },
-               {'selector': '#table-wrapper th, #table-wrapper td',  # Add padding reduction styles to the wrapper div
-                'props': [('padding-top', '-100px'),
-                          ('padding-bottom', '5px'),
-                          ('padding-left', '5px'),
-                          ('padding-right', '5px')]
-                }]
-
-# Render the formatted dataframe as HTML string
-formatted_df_html = formatted_df.render()
-
-# Create a div wrapper for the table with margin reduction styles
-table_wrapper = f'<div style="margin-top: -100px; margin-bottom: -50px;">{formatted_df_html}</div>'
-
-# Display the formatted dataframe with reduced margin using st.write() with unsafe_allow_html=True
-st.write(table_wrapper, unsafe_allow_html=True)
-# Apply formatting to the dataframe
-#formatted_df = transposed_data.style.set_table_attributes('class="dataframe"').set_table_styles(css_classes)
-
-# Display the formatted dataframe using st.write() with html string
-
-#st.write(formatted_df.render(), unsafe_allow_html=True)
 
 # Apply formatting to the dataframe
 #formatted_df = transposed_data.style.set_table_attributes('class="dataframe"').set_table_styles(css_classes)
