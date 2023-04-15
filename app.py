@@ -122,37 +122,12 @@ transposed_data = selected_columns.T
 # Set column names as transformed data
 transposed_data.columns = column_6_values
 
-st.table(transposed_data)
-# Apply formatting to the table
-table_style = """
-<style>
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
+#st.table(transposed_data)
 
-th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-  text-align: left;
-}
 
-td, th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
+# Apply formatting to the dataframe
+formatted_df = transposed_data.style.set_table_styles([{'selector': 'th',
+                                           'props': [('font-weight', 'bold')]}])
 
-tr:nth-child(even) {
-  background-color: #f8f8f8;
-}
-
-tr:hover {
-  background-color: #eaeaea;
-}
-
-th div {
-  font-weight: bold;
-}
-</style>
-"""
-st.markdown(table_style, unsafe_allow_html=True)
+# Display the formatted dataframe using st.table
+st.table(formatted_df)
