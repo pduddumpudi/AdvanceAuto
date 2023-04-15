@@ -75,7 +75,7 @@ selected_new_disc = st.sidebar.selectbox('Select New Disc', new_disc_options, ke
 
 
 
-st.sidebar.markdown('<p style="color:#2c8cff; font-weight: bold; font-size:20px;">Maruti Suzuki Genuine Parts</p>', unsafe_allow_html=True)
+st.sidebar.markdown('<p style="color:#2c8cff;  font-size:20px;">Maruti Suzuki Genuine Parts</p>', unsafe_allow_html=True)
 
 # Filter data based on user selection
 filtered_data = df[(df['Models'] == selected_model) &
