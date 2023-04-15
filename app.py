@@ -101,7 +101,7 @@ fig = go.Figure(data=[go.Table(columnwidth = [80,170,70,70,70],
 fig.update_layout(width=1000, height=125, title=dict(text='Part Details', font=dict(size=20, family='sans-serif')), margin=dict(t=30,b=0, l=0, r=0))
 
 # Display Plotly table
-st.plotly_chart(fig)
+st.plotly_chart(fig,use_container_width=True)
 
 
 # Select columns 14 to 31
