@@ -157,20 +157,13 @@ css_classes = [{'selector': 'table',
                           ('padding-left', '5px'),
                           ('padding-right', '5px')]  # Set padding values to reduce spacing
                 }]
-# Define CSS styles for parent container margin
-parent_container_css = '''
-<style>
-.parent-container {
-    margin-top: -100px;  /* Set negative margin to reduce top margin */
-}
-</style>
-'''
+
 
 # Apply formatting to the dataframe
 formatted_df = transposed_data.style.set_table_attributes('class="dataframe"').set_table_styles(css_classes)
 
 # Display the formatted dataframe using st.write() with html string
-st.write(parent_container_css, unsafe_allow_html=True)
+
 st.write(formatted_df.render(), unsafe_allow_html=True)
 
 # Apply formatting to the dataframe
