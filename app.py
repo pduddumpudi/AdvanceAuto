@@ -57,7 +57,7 @@ st.markdown(
 #st.markdown('<style>{}</style>'.format(sidebar_style), unsafe_allow_html=True)
 
 # Define sidebar location
-st.sidebar.markdown('<h1 style="color:#2c8cff; font-size:32px;font-weight: bold;">Advance Auto Parts - Maruti Suzuki</h1>', unsafe_allow_html=True)
+st.sidebar.markdown('<h1 style="color:#2c8cff; font-size:32px;font-weight: bold;">Advance Auto Parts - Maruti Suzuki - VJY</h1>', unsafe_allow_html=True)
 st.sidebar.markdown('<p style="color:#384252; font-weight: bold; font-size:32px;">Welcome to the CBS Dashboard</p>', unsafe_allow_html=True)
 st.sidebar.markdown('<p style="color:#384252;font-size:14px;">Explore auto parts location and availability. Select the below filters to view</p>', unsafe_allow_html=True)
 
